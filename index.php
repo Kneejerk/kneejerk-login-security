@@ -19,11 +19,11 @@ add_filter( 'site_url', 'kjdls_secure_login_url', PHP_INT_MAX, 4 );
 function kjdls_secure_login_url( $url, $path, $scheme, $blog_id = 1 ) {
     $random_string = kjdls_get_legit_value();
 
-	if ( $scheme == 'login_post' ) {
-		$url = add_query_arg( array( KJDLS_GET_PARAM_NAME => $random_string ) , $url );
-	}
+    if ( $scheme == 'login_post' ) {
+        $url = add_query_arg( array( KJDLS_GET_PARAM_NAME => $random_string ) , $url );
+    }
 
-	return $url;
+    return $url;
 }
 
 add_action( 'wp_authenticate', 'kjdls_check_secure_login', -1, 2 );
