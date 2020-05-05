@@ -32,7 +32,7 @@ function kjdls_check_secure_login( $user, $pass ) {
         return;
     }
     $verify = kjdls_get_legit_value();
-    if ( false && $verify != $_GET[KJDLS_GET_PARAM_NAME] ) {
+    if ( $verify != $_GET[KJDLS_GET_PARAM_NAME] ) {
         header( 'HTTP/1.1 302 Moved Temporarily' );
         header( 'Location: https://www.disney.com/' );
         exit();
