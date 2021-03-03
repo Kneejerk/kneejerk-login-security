@@ -17,9 +17,8 @@ define('KJDLS_GET_PARAM_NAME', 'kjd-login-security');
 
 add_filter( 'site_url', 'kjdls_secure_login_url', PHP_INT_MAX, 4 );
 function kjdls_secure_login_url( $url, $path, $scheme, $blog_id = 1 ) {
-    $random_string = kjdls_get_legit_value();
-
     if ( $scheme == 'login_post' ) {
+        $random_string = kjdls_get_legit_value();
         $url = add_query_arg( array( KJDLS_GET_PARAM_NAME => $random_string ) , $url );
     }
 
